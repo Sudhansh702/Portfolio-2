@@ -1,19 +1,24 @@
 export const portfolioData = {
   personal: {
-    name: "John Doe",
+    name: "Sudhansh",
     title: "Full Stack Developer",
     tagline: "Building secure, fast, and modern web applications",
-    email: "contact@example.com",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+      email: "sudhansh787@gmail.com",
+      phone: "+91 7496097769",
+    location: "Available Remotely",
+    github: "https://github.com/sudhansh702",
+    linkedin: "https://linkedin.com/in/sudhansh-soni-ba3a62256",
+    // twitter: "https://twitter.com/yourusername",
+    availability: "Open to opportunities",
+    currentlyAvailable: true, // Set to false to hide availability badge in Contact section
   },
   
   about: {
     description: "I'm a passionate software developer with expertise in building scalable web applications. I specialize in creating secure, performant solutions using modern technologies and best practices.",
     highlights: [
-      "5+ years of experience in full-stack development",
-      "Expert in React, Next.js, and Node.js ecosystems",
+      "2+ years of experience in full-stack development",
+      "Expert in React,Node.js,Spring Boot, MongoDB, and PostgreSQL ecosystems",
+      "docker, AWS, Git, REST API, GraphQL, Tailwind CSS, Framer Motion, GSAP",
       "Strong focus on performance and security",
       "Passionate about clean code and user experience",
     ],
@@ -40,13 +45,30 @@ export const portfolioData = {
       { name: "Git", level: 90 },
       { name: "Docker", level: 80 },
       { name: "AWS", level: 75 },
-      { name: "CI/CD", level: 82 },
     ],
   },
 
   projects: [
     {
       id: 1,
+      title: "Sneaker Studio",
+      description: "Interactive 3D sneaker customization platform with real-time visualization, multiple color options, and texture mapping.",
+      tech: ["Three.js", "React", "Next.js", "TypeScript", "Tailwind CSS"],
+      image: "/images/shoe_custom.png",
+      link: "https://sneaker-studio-nine.vercel.app/customiser",
+      github: "#",
+    },
+    {
+      id: 2,
+      title: "TeamConnect",
+      description: "Smart team collaboration platform with real-time messaging, task management, and seamless team coordination.",
+      tech: ["React", "Node.js", "TypeScript", "Tailwind CSS", "REST API"],
+      image: "/images/teamconnect.png",
+      link: "https://team-collaboration-five.vercel.app/login",
+      github: "#",
+    },
+    {
+      id: 3,
       title: "E-Commerce Platform",
       description: "A full-stack e-commerce solution with secure payment processing, real-time inventory management, and advanced analytics dashboard.",
       tech: ["Next.js", "Node.js", "PostgreSQL", "Stripe", "AWS"],
@@ -55,7 +77,7 @@ export const portfolioData = {
       github: "#",
     },
     {
-      id: 2,
+      id: 4,
       title: "Real-Time Chat Application",
       description: "WebSocket-based chat application with end-to-end encryption, file sharing, and real-time notifications.",
       tech: ["React", "Socket.io", "Node.js", "MongoDB", "Redis"],
@@ -64,7 +86,7 @@ export const portfolioData = {
       github: "#",
     },
     {
-      id: 3,
+      id: 5,
       title: "Task Management System",
       description: "Enterprise task management platform with team collaboration, time tracking, and advanced reporting features.",
       tech: ["Spring Boot", "React", "MySQL", "Docker"],

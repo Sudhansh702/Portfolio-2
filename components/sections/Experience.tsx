@@ -82,7 +82,7 @@ export default function Experience() {
                       <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.5 }}
                         transition={{ delay: 0.2 }}
                         className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3`}
                       >
@@ -107,7 +107,7 @@ export default function Experience() {
                             key={i}
                             initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.5 }}
                             transition={{ delay: 0.3 + i * 0.1 }}
                             className={`flex items-start gap-2 ${
                               index % 2 === 0
@@ -129,7 +129,7 @@ export default function Experience() {
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false, amount: 0.5 }}
                     transition={{ delay: 0.1 }}
                     className="absolute left-8 md:left-1/2 w-8 h-8 -ml-4 bg-white dark:bg-dark-surface rounded-full border-4 border-primary shadow-lg flex items-center justify-center z-10"
                   >

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
@@ -31,15 +32,24 @@ export default function Projects() {
                 <Card className="h-full flex flex-col overflow-hidden group">
                   {/* Project Image */}
                   <div className="relative h-48 bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ duration: 0.3 }}
-                        className="text-6xl"
-                      >
-                        🚀
-                      </motion.div>
-                    </div>
+                    {project.image && !project.image.includes('placeholder') ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <motion.div
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-6xl"
+                        >
+                          🚀
+                        </motion.div>
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
@@ -50,13 +60,13 @@ export default function Projects() {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="flex-1 flex flex-col justify-between">
+                  <CardContent className="flex-1 flex flex-col justify-between pt-6">
                     {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary font-medium"
+                          className="px-3 py-1.5 text-xs rounded-md bg-primary/10 text-primary font-medium"
                         >
                           {tech}
                         </span>
@@ -64,24 +74,15 @@ export default function Projects() {
                     </div>
 
                     {/* Links */}
-                    <div className="flex gap-3">
+                    <div className="flex">
                       <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1"
+                        className="w-full"
                         onClick={() => window.open(project.link, "_blank")}
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="flex-1"
-                        onClick={() => window.open(project.github, "_blank")}
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
+                        View Live Demo
                       </Button>
                     </div>
                   </CardContent>

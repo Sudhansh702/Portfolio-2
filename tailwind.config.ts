@@ -1,4 +1,8 @@
 import type { Config } from "tailwindcss";
+import { getCurrentTheme } from "./lib/themes";
+
+// Get the current theme colors
+const theme = getCurrentTheme();
 
 const config: Config = {
   content: [
@@ -12,28 +16,28 @@ const config: Config = {
       colors: {
         // Light mode
         light: {
-          bg: "#fafaf9",
-          surface: "#ffffff",
-          textPrimary: "#0f172a",
-          textSecondary: "#475569",
+          bg: theme.light.bg,
+          surface: theme.light.surface,
+          textPrimary: theme.light.textPrimary,
+          textSecondary: theme.light.textSecondary,
         },
         // Dark mode
         dark: {
-          bg: "#0a0a0a",
-          surface: "#171717",
-          textPrimary: "#fafafa",
-          textSecondary: "#a1a1aa",
+          bg: theme.dark.bg,
+          surface: theme.dark.surface,
+          textPrimary: theme.dark.textPrimary,
+          textSecondary: theme.dark.textSecondary,
         },
         // Accent colors
         primary: {
-          light: "#14b8a6",
-          DEFAULT: "#0d9488",
-          dark: "#0f766e",
+          light: theme.primary.light,
+          DEFAULT: theme.primary.DEFAULT,
+          dark: theme.primary.dark,
         },
         accent: {
-          light: "#fbbf24",
-          DEFAULT: "#f59e0b",
-          dark: "#d97706",
+          light: theme.accent.light,
+          DEFAULT: theme.accent.DEFAULT,
+          dark: theme.accent.dark,
         },
       },
       fontFamily: {
@@ -42,7 +46,7 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-primary": "linear-gradient(135deg, #0d9488 0%, #f59e0b 100%)",
+        "gradient-primary": `linear-gradient(135deg, ${theme.primary.DEFAULT} 0%, ${theme.accent.DEFAULT} 100%)`,
       },
     },
   },

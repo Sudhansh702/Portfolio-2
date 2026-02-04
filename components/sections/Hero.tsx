@@ -1,12 +1,67 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import Button from "@/components/ui/Button";
 import TextReveal from "@/components/animations/TextReveal";
 import { portfolioData } from "@/data/portfolio";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 export default function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    const content = contentRef.current;
+    const aboutSection = document.getElementById("about");
+    
+    if (!hero || !content) return;
+
+    // Set initial state for About section
+    if (aboutSection) {
+      gsap.set(aboutSection, { y: "100vh" });
+    }
+
+    // Create the zoom and fade animation
+    const st = ScrollTrigger.create({
+      trigger: hero,
+      start: "top top",
+      end: "+=100%",
+      pin: true,
+      anticipatePin: 1,
+      scrub: 1,
+      snap: {
+        snapTo: (progress) => {
+          return progress > 0.2 ? 1 : 0;
+        },
+        duration: 0.8,
+        ease: "power2.inOut",
+      },
+      onUpdate: (self) => {
+        // Animate hero content zoom and fade
+        gsap.to(content, {
+          scale: 1 + (self.progress * 6),
+          opacity: 1 - self.progress,
+          duration: 0,
+        });
+
+        // Animate about section sliding up
+        if (aboutSection) {
+          gsap.to(aboutSection, {
+            y: `${100 - (self.progress * 100)}vh`,
+            duration: 0,
+          });
+        }
+      },
+    });
+
+    return () => {
+      st.kill();
+    };
+  }, []);
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     element?.scrollIntoView({ behavior: "smooth" });
@@ -19,8 +74,9 @@ export default function Hero() {
 
   return (
     <section
+      ref={heroRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Animated Background Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -68,7 +124,10 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div 
+        ref={contentRef}
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

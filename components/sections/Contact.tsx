@@ -18,14 +18,14 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Available Remotely",
+    value: portfolioData.personal.location,
     href: null,
   },
   {
     icon: Phone,
     label: "Availability",
-    value: "Open to opportunities",
-    href: null,
+    value: portfolioData.personal.availability,
+    href: portfolioData.personal.phone ? `tel:${portfolioData.personal.phone}` : null,
   },
 ];
 
@@ -86,7 +86,7 @@ export default function Contact() {
                     key={info.label}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false, amount: 0.5 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ x: 5 }}
                     className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 dark:bg-dark-surface"
@@ -114,23 +114,25 @@ export default function Contact() {
               </div>
 
               {/* Decorative Element */}
-              <motion.div
-                animate={{
-                  rotate: [0, 5, 0],
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative mt-8 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
-              >
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  💡 Currently available for freelance projects and full-time
-                  opportunities
-                </p>
-              </motion.div>
+              {portfolioData.personal.currentlyAvailable && (
+                <motion.div
+                  animate={{
+                    rotate: [0, 5, 0],
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="relative mt-8 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
+                >
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    💡 Currently available for freelance projects and full-time
+                    opportunities
+                  </p>
+                </motion.div>
+              )}
             </div>
           </ScrollReveal>
 

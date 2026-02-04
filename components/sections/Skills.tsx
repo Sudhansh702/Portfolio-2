@@ -68,7 +68,7 @@ export default function Skills() {
                         key={skill.name}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.3 }}
                         transition={{ delay: skillIndex * 0.05 }}
                       >
                         <div className="flex items-center justify-between mb-2">
@@ -83,7 +83,7 @@ export default function Skills() {
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.5 }}
                             transition={{
                               duration: 1,
                               delay: skillIndex * 0.05,
@@ -127,7 +127,7 @@ export default function Skills() {
                   key={tech}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, amount: 0.3 }}
                   transition={{ delay: index * 0.05 }}
                   whileHover={{ scale: 1.1 }}
                   className="px-4 py-2 rounded-full bg-white dark:bg-dark-surface border border-gray-200 dark:border-gray-700 text-sm font-medium shadow-sm hover:shadow-md hover:border-primary transition-all cursor-default"

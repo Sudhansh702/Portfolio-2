@@ -2,14 +2,16 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import ParallaxWrapper from "@/components/animations/ParallaxWrapper";
 import { portfolioData } from "@/data/portfolio";
+import sudhanshImage from "@/public/images/sudhansh.png";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-32 bg-gray-50 dark:bg-dark-bg">
+    <section id="about" className="relative z-20 py-20 md:py-32 bg-gray-50 dark:bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="About Me"
@@ -21,13 +23,27 @@ export default function About() {
           <ScrollReveal direction="left">
             <div className="relative">
               <ParallaxWrapper speed={0.3}>
-                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-primary opacity-20" />
-                  <div className="absolute inset-0 bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
-                    <span className="text-6xl text-gray-400 dark:text-gray-500">
-                      👨‍💻
-                    </span>
-                  </div>
+                <div className="relative aspect-square rounded-2xl overflow-visible">
+                  {/* <div className="absolute inset-0 bg-gradient-primary opacity-20" /> */}
+                  <motion.div
+                    animate={{
+                      y: [0, -10, 0],
+                      // rotate: [0, 2, 0, -2, 0],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeIn",
+                    }}
+                    className="relative w-full h-full"
+                  >
+                    <Image 
+                      src={sudhanshImage} 
+                      alt="Sudhansh" 
+                      fill
+                      className="object-cover"
+                    />
+                  </motion.div>
                   {/* Decorative Elements */}
                   <motion.div
                     animate={{
@@ -71,7 +87,7 @@ export default function About() {
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false, amount: 0.3 }}
                     transition={{ delay: 0.4 + index * 0.1 }}
                     className="flex items-start gap-3"
                   >

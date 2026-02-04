@@ -51,7 +51,7 @@ export default function TextReveal({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.6, delay }}
         className={className}
       >
@@ -66,7 +66,7 @@ export default function TextReveal({
       variants={container}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: false, amount: 0.3 }}
     >
       {words.map((word, index) => (
         <motion.span

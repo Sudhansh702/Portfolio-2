@@ -20,7 +20,7 @@ export default function SectionHeading({
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.5 }}
         transition={{ duration: 0.6 }}
         className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent"
       >
@@ -30,7 +30,7 @@ export default function SectionHeading({
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg text-gray-600 dark:text-dark-textSecondary max-w-2xl mx-auto"
         >
