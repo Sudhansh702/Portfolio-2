@@ -8,7 +8,6 @@ export const portfolioData = {
     location: "Available Remotely",
     github: "https://github.com/sudhansh702",
     linkedin: "https://linkedin.com/in/sudhansh-soni-ba3a62256",
-    // twitter: "https://twitter.com/yourusername",
     availability: "Open to opportunities",
     currentlyAvailable: true, // Set to false to hide availability badge in Contact section
   },
@@ -66,7 +65,25 @@ export const portfolioData = {
       image: "/images/teamconnect.png",
       link: "https://team-collaboration-five.vercel.app/login",
       github: "#",
-    }
+    },
+    {
+      id: 3,
+      title: "Ideal PR",
+      description: "Professional website for Ideal PR, built at Techspie. Public relations and communications platform with a modern, responsive design.",
+      tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      image: "/images/idealpr.png",
+      link: "https://www.idealpr.in",
+      github: "#",
+    },
+    {
+      id: 4,
+      title: "Job Connect",
+      description: "Job search and recruitment platform connecting job seekers with employers. Browse listings, apply to roles, and manage your job hunt in one place.",
+      tech: ["React", "TypeScript", "Tailwind CSS", "REST API"],
+      image: "/images/JobConnect.png",
+      link: "https://job-connect-frontend-eight.vercel.app",
+      github: "#",
+    },
   ],
 
   experience: [

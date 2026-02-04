@@ -1,13 +1,12 @@
 "use client";
 
-import { Github, Linkedin, Twitter, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import MagneticButton from "@/components/animations/MagneticButton";
 
 const socialLinks = [
   { icon: Github, href: portfolioData.personal.github, label: "GitHub" },
   { icon: Linkedin, href: portfolioData.personal.linkedin, label: "LinkedIn" },
-  { icon: Twitter, href: portfolioData.personal.twitter, label: "Twitter" },
   { icon: Mail, href: `mailto:${portfolioData.personal.email}`, label: "Email" },
 ];
 
